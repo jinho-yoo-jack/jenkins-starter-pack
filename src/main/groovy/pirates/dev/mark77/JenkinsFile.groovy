@@ -15,6 +15,7 @@ pipeline {
     stages {
         stage('Checkout Git As TagName') {
             steps {
+                print('Checkout Git As TagName')
                 script {
                     try {
                         if ("${env.TAG_NAME}" == "origin/master") {
