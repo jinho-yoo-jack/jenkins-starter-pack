@@ -7,7 +7,7 @@ pipeline {
     environment {
         APP_REPO_URL = 'https://github.com/jinho-yoo-jack/mark77.git'
         GITHUB_CREDENTIAL_ID = 'jinho-yoo-jack'
-        DOCKERHUB_CREDENTIALS_USR= 'jhy7342'
+        DOCKERHUB_CREDENTIALS_USR= 'jhy7342@gmail.com'
         DOCKERHUB_CREDENTIALS_PSW = credentials('docker-hub-access-token-jhy7342')
         DOCKERHUB_REPOSITORY = 'jhy7342/mark77'
         TARGET_HOST = "ec2-13-124-95-98.ap-northeast-2.compute.amazonaws.com"
@@ -52,6 +52,7 @@ pipeline {
 
         stage('Login to Docker Hub') {
             steps {
+                "echo $DOCKERHUB_CREDENTIALS_PSW"
                 sh "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin"
             }
         }
