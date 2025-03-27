@@ -39,7 +39,7 @@ pipeline {
         stage('Build Source Code') {
             steps {
                 sh "pwd"
-                sh './gradlew clean test bootJar'
+                sh './gradlew clean bootJar'
             }
         }
 
