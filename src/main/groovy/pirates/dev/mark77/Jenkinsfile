@@ -75,7 +75,7 @@ pipeline {
 
         stage('Start Application as Docker') {
             steps {
-                sshagent (credentials: ['controller-ssh-private-key']) {
+                sshagent (credentials: ['mark77-ec2-private-key']) {
                     sh """
                     ssh -o StrictHostKeyChecking=no ubuntu@${TARGET_HOST} '
                     pwd
